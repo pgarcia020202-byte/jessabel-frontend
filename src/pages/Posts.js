@@ -17,7 +17,7 @@ const getImageUrl = (imagePath) => {
   // If it's already a full URL, return as is
   if (imagePath.startsWith('http')) return imagePath;
   // Otherwise, prepend the server URL
-  return `http://localhost:5000${imagePath}`;
+  return `${process.env.REACT_APP_API_URL || 'http://localhost:5000'}${imagePath}`;
 };
 
 const Posts = () => {
@@ -30,6 +30,7 @@ const Posts = () => {
     content: '',
     image: null
   });
+  const [imagePreview, setImagePreview] = useState('');
   const [commentDrafts, setCommentDrafts] = useState({});
   const [error, setError] = useState('');
 
@@ -45,6 +46,22 @@ const Posts = () => {
     return copy;
   }, [posts]);
 
+  const handleImageChange = (e) => {
+    const file = e.target.files[0];
+    if (file) {
+      setPostForm((p) => ({ ...p, image: file }));
+      // Create preview
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        setImagePreview(reader.result);
+      };
+      reader.readAsDataURL(file);
+    } else {
+      setPostForm((p) => ({ ...p, image: null }));
+      setImagePreview('');
+    }
+  };
+
   const handleCreatePost = async (e) => {
     e.preventDefault();
     setError('');
@@ -59,6 +76,7 @@ const Posts = () => {
     try {
       await createPost({ title, content, tag, image: postForm.image });
       setPostForm({ title: '', tag: 'General', content: '', image: null });
+      setImagePreview('');
       // Reset file input
       const fileInput = document.getElementById('post-image');
       if (fileInput) fileInput.value = '';
@@ -139,10 +157,28 @@ const Posts = () => {
                 id="post-image"
                 type="file"
                 accept="image/*"
-                onChange={(e) => setPostForm((p) => ({ ...p, image: e.target.files[0] || null }))}
+                onChange={handleImageChange}
                 disabled={!canCreate}
               />
-              {postForm.image && (
+              {imagePreview && (
+                <div style={{ marginTop: '1rem' }}>
+                  <img
+                    src={imagePreview}
+                    alt="Preview"
+                    style={{
+                      maxWidth: '200px',
+                      maxHeight: '200px',
+                      objectFit: 'cover',
+                      borderRadius: '8px',
+                      border: '1px solid #ddd'
+                    }}
+                  />
+                  <div style={{ marginTop: '0.5rem', fontSize: '0.875rem', color: '#666' }}>
+                    Selected: {postForm.image?.name}
+                  </div>
+                </div>
+              )}
+              {!imagePreview && postForm.image && (
                 <div style={{ marginTop: '0.5rem', fontSize: '0.875rem', color: '#666' }}>
                   Selected: {postForm.image.name}
                 </div>
