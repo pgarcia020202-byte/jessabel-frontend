@@ -1,0 +1,411 @@
+/* ===================================
+   REGISTER PAGE STYLES
+   =================================== */
+
+.register-page {
+    padding: 3rem 0;
+}
+
+.register-content {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+}
+
+.register-info,
+.register-form-section {
+    background: white;
+    padding: 2.5rem;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.register-info h2,
+.register-form-section h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    color: #6C63FF;
+    margin-bottom: 2rem;
+}
+
+.register-info h3,
+.register-form-section h3 {
+    color: #FF6584;
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+}
+
+.register-image {
+    width: 100%;
+    border-radius: 10px;
+    margin: 1.5rem 0;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.benefits-list {
+    list-style: none;
+    margin: 1.5rem 0;
+}
+
+.benefits-list li {
+    margin-bottom: 1rem;
+    padding-left: 1.5rem;
+    position: relative;
+}
+
+.benefits-list li::before {
+    content: "🎨";
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+/* ===================================
+   FORM STYLES
+   =================================== */
+
+.registration-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.form-group label {
+    font-weight: 600;
+    color: #333;
+    font-size: 0.95rem;
+}
+
+.form-group input,
+.form-group select {
+    padding: 0.75rem 1rem;
+    border: 2px solid #e1e5e9;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    background: white;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+    outline: none;
+    border-color: #6C63FF;
+    box-shadow: 0 0 0 3px rgba(108, 99, 255, 0.1);
+}
+
+.form-group input.error,
+.form-group select.error {
+    border-color: #FF6584;
+    box-shadow: 0 0 0 3px rgba(255, 101, 132, 0.1);
+}
+
+.error-message {
+    color: #FF6584;
+    font-size: 0.85rem;
+    font-weight: 500;
+    margin-top: 0.25rem;
+    display: block;
+}
+
+.radio-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.radio-option {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.radio-option input[type="radio"] {
+    width: auto;
+    margin: 0;
+}
+
+.radio-option label {
+    margin: 0;
+    font-weight: 400;
+    cursor: pointer;
+}
+
+.checkbox-group {
+    flex-direction: row;
+    align-items: center;
+    gap: 0.75rem !important;
+}
+
+.checkbox-group input[type="checkbox"] {
+    width: auto;
+    margin: 0;
+}
+
+.checkbox-group label {
+    margin: 0;
+    font-weight: 400;
+    cursor: pointer;
+}
+
+.submit-btn {
+    background: linear-gradient(135deg, #6C63FF 0%, #5A52D5 100%);
+    color: white;
+    border: none;
+    padding: 1rem 2rem;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 1rem;
+}
+
+.submit-btn:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(108, 99, 255, 0.3);
+}
+
+.submit-btn:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.form-note {
+    font-size: 0.85rem;
+    color: #666;
+    font-style: italic;
+    margin-top: 1rem;
+    text-align: center;
+}
+
+.info-note {
+    color: #666;
+    line-height: 1.6;
+    margin: 1.5rem 0;
+}
+
+/* ===================================
+   RESPONSIVE DESIGN - TABLET
+   =================================== */
+
+/* Dark mode Register page styles */
+[data-theme="dark"] .register-page {
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+}
+
+[data-theme="dark"] .register-form-section {
+    background-color: var(--bg-secondary);
+    color: var(--text-primary);
+}
+
+[data-theme="dark"] .register-form-section h2,
+[data-theme="dark"] .register-form-section h3 {
+    color: var(--text-primary);
+}
+
+[data-theme="dark"] .register-form-section p {
+    color: var(--text-primary);
+}
+
+/* Dark mode form elements */
+[data-theme="dark"] .form-group label {
+color: var(--text-primary);
+}
+
+[data-theme="dark"] .form-group input,
+[data-theme="dark"] .form-group select,
+[data-theme="dark"] .form-group textarea {
+background-color: var(--bg-tertiary);
+color: var(--text-primary);
+border-color: var(--border-color);
+}
+
+[data-theme="dark"] .form-group input:focus,
+[data-theme="dark"] .form-group select:focus,
+[data-theme="dark"] .form-group textarea:focus {
+border-color: var(--accent-color);
+box-shadow: 0 0 0 3px rgba(108, 99, 255, 0.2);
+}
+
+[data-theme="dark"] .form-group input::placeholder,
+[data-theme="dark"] .form-group textarea::placeholder {
+color: var(--text-muted);
+}
+
+/* Dark mode benefits list */
+[data-theme="dark"] .benefits-list {
+background-color: var(--bg-tertiary) !important;
+color: var(--text-primary) !important;
+border-color: var(--border-color) !important;
+}
+
+[data-theme="dark"] .benefits-list li {
+color: var(--text-primary) !important;
+background-color: transparent !important;
+border-bottom-color: var(--border-color) !important;
+padding: 1rem 0 !important;
+}
+
+[data-theme="dark"] .benefits-list li:hover {
+background-color: rgba(108, 99, 255, 0.1) !important;
+}
+
+[data-theme="dark"] .benefits-list li strong {
+color: var(--accent-color) !important;
+}
+
+/* Force all benefits list content */
+[data-theme="dark"] ul.benefits-list,
+[data-theme="dark"] ul.benefits-list li,
+[data-theme="dark"] ul.benefits-list li *,
+[data-theme="dark"] ul.benefits-list li strong {
+color: var(--text-primary) !important;
+}
+
+[data-theme="dark"] ul.benefits-list li strong {
+color: var(--accent-color) !important;
+}
+
+/* Dark mode checkboxes */
+[data-theme="dark"] .checkbox-label {
+    color: var(--text-primary);
+}
+
+[data-theme="dark"] .checkbox-group label {
+    color: var(--text-primary);
+}
+
+/* Dark mode radio buttons */
+[data-theme="dark"] .radio-label {
+    color: var(--text-primary) !important;
+}
+
+[data-theme="dark"] .radio-group {
+    background-color: var(--bg-tertiary) !important;
+    border-color: var(--border-color) !important;
+}
+
+[data-theme="dark"] .radio-group label {
+    color: var(--text-primary) !important;
+}
+
+[data-theme="dark"] .radio-option {
+    background-color: var(--bg-tertiary) !important;
+    color: var(--text-primary) !important;
+    border-color: var(--border-color) !important;
+}
+
+[data-theme="dark"] .radio-option:hover {
+    background-color: rgba(108, 99, 255, 0.1) !important;
+    border-color: var(--accent-color) !important;
+}
+
+[data-theme="dark"] .radio-option.selected {
+    background-color: rgba(108, 99, 255, 0.2) !important;
+    border-color: var(--accent-color) !important;
+}
+
+/* Force all radio button content */
+[data-theme="dark"] input[type="radio"] + label,
+[data-theme="dark"] input[type="radio"] + span,
+[data-theme="dark"] .radio-label,
+[data-theme="dark"] .radio-option,
+[data-theme="dark"] .radio-option *,
+[data-theme="dark"] .radio-group label {
+    color: var(--text-primary) !important;
+}
+
+/* Custom radio button styling in dark mode */
+[data-theme="dark"] input[type="radio"] {
+    background-color: var(--bg-tertiary) !important;
+    border-color: var(--border-color) !important;
+}
+
+[data-theme="dark"] input[type="radio"]:checked {
+    background-color: var(--accent-color) !important;
+    border-color: var(--accent-color) !important;
+}
+
+[data-theme="dark"] input[type="radio"]:checked + label {
+    color: var(--accent-color) !important;
+}
+
+/* Dark mode buttons */
+[data-theme="dark"] .submit-btn {
+    background: linear-gradient(135deg, var(--accent-color) 0%, var(--accent-hover) 100%) !important;
+    color: white !important;
+}
+
+[data-theme="dark"] .submit-btn:hover {
+    background: linear-gradient(135deg, var(--accent-hover) 0%, var(--accent-color) 100%) !important;
+    color: white !important;
+}
+
+/* Force all button text in register page */
+[data-theme="dark"] button,
+[data-theme="dark"] input[type="submit"],
+[data-theme="dark"] input[type="button"],
+[data-theme="dark"] input[type="reset"] {
+    color: white !important;
+}
+
+[data-theme="dark"] button[type="submit"]:disabled,
+[data-theme="dark"] input[type="submit"]:disabled {
+    background: var(--bg-tertiary) !important;
+    color: var(--text-muted) !important;
+}
+
+/* Dark mode error messages */
+[data-theme="dark"] .error-message {
+    color: #FF6584 !important;
+    background-color: rgba(255, 101, 132, 0.1) !important;
+    border-left: 3px solid #FF6584 !important;
+    padding: 0.5rem 1rem !important;
+    border-radius: 4px !important;
+    margin-top: 0.5rem !important;
+    font-size: 0.875rem !important;
+    font-weight: 500 !important;
+}
+
+[data-theme="dark"] .form-group input.error,
+[data-theme="dark"] .form-group textarea.error,
+[data-theme="dark"] .form-group select.error {
+    border-color: #FF6584 !important;
+    box-shadow: 0 0 0 3px rgba(255, 101, 132, 0.2) !important;
+    background-color: var(--bg-tertiary) !important;
+    color: var(--text-primary) !important;
+}
+
+@media (max-width: 768px) {
+    .register-info h2,
+    .register-form-section h2 {
+        font-size: 2rem;
+    }
+    
+    .register-info,
+    .register-form-section {
+        padding: 1.5rem;
+    }
+}
+
+/* ===================================
+   RESPONSIVE DESIGN - MOBILE
+   =================================== */
+
+@media (max-width: 480px) {
+    .register-form-section h3 {
+        font-size: 1.4rem;
+    }
+    
+    .submit-btn {
+        width: 100%;
+    }
+}

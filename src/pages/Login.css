@@ -1,0 +1,519 @@
+/* ===================================
+   LOGIN PAGE STYLES
+   =================================== */
+
+.login-page {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 25%, #f093fb 50%, #f5576c 75%, #ffc837 100%);
+    background-size: 400% 400%;
+    animation: gradientShift 15s ease infinite;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Dark mode login page background */
+[data-theme="dark"] .login-page {
+    background: linear-gradient(135deg, #2C3E50 0%, #34495E 25%, #4A5F7A 50%, #5D6D7E 75%, #6C7A89 100%);
+    background-size: 400% 400%;
+}
+
+@keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.login-container {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    max-width: 450px;
+}
+
+.login-card {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    padding: 3rem;
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    animation: slideUp 0.6s ease-out;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Dark mode login card */
+[data-theme="dark"] .login-card {
+    background: rgba(45, 45, 45, 0.95);
+    border: 1px solid rgba(108, 99, 255, 0.3);
+    color: var(--text-primary);
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Login Header */
+.login-header {
+    text-align: center;
+    margin-bottom: 2.5rem;
+}
+
+.login-logo {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-10px);
+    }
+    60% {
+        transform: translateY(-5px);
+    }
+}
+
+.login-header h1 {
+    color: #2C3E50;
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+    font-weight: 700;
+    transition: color 0.3s ease;
+}
+
+/* Dark mode header title */
+[data-theme="dark"] .login-header h1 {
+    color: var(--text-primary);
+}
+
+.login-header p {
+    color: #666;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    transition: color 0.3s ease;
+}
+
+/* Dark mode header description */
+[data-theme="dark"] .login-header p {
+    color: var(--text-secondary);
+}
+
+/* Form Styles */
+.login-form {
+    margin-bottom: 2rem;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    color: #2C3E50;
+    font-size: 0.9rem;
+    transition: color 0.3s ease;
+}
+
+/* Dark mode form labels */
+[data-theme="dark"] .form-group label {
+    color: var(--text-primary);
+}
+
+.input-wrapper {
+    position: relative;
+}
+
+.input-wrapper input {
+    width: 100%;
+    padding: 1rem 3rem 1rem 1rem;
+    border: 2px solid #e9ecef;
+    border-radius: 10px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    background: white;
+}
+
+/* Dark mode input fields */
+[data-theme="dark"] .input-wrapper input {
+    background: var(--bg-tertiary);
+    color: var(--text-primary);
+    border-color: var(--border-color);
+}
+
+.input-wrapper input:focus {
+    outline: none;
+    border-color: #6C63FF;
+    box-shadow: 0 0 0 3px rgba(108, 99, 255, 0.1);
+}
+
+/* Dark mode input focus */
+[data-theme="dark"] .input-wrapper input:focus {
+    border-color: var(--accent-color);
+    box-shadow: 0 0 0 3px rgba(108, 99, 255, 0.2);
+}
+
+.input-wrapper input.error {
+    border-color: #FF6584;
+    box-shadow: 0 0 0 3px rgba(255, 101, 132, 0.1);
+}
+
+.input-icon {
+    position: absolute;
+    right: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.2rem;
+    color: #999;
+    transition: color 0.3s ease;
+}
+
+/* Dark mode input icon */
+[data-theme="dark"] .input-icon {
+    color: var(--text-muted);
+}
+
+.password-toggle {
+    position: absolute;
+    right: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    font-size: 1.2rem;
+    cursor: pointer;
+    color: #999;
+    transition: color 0.3s ease;
+}
+
+/* Dark mode password toggle */
+[data-theme="dark"] .password-toggle {
+    color: var(--text-muted);
+}
+
+.password-toggle:hover {
+    color: #6C63FF;
+}
+
+/* Dark mode password toggle hover */
+[data-theme="dark"] .password-toggle:hover {
+    color: var(--accent-color);
+}
+
+.error-message {
+    display: block;
+    color: #FF6584;
+    font-size: 0.875rem;
+    margin-top: 0.5rem;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+/* Dark mode error messages */
+[data-theme="dark"] .error-message {
+    color: #FF6584 !important;
+    background-color: rgba(255, 101, 132, 0.1) !important;
+    border-left: 3px solid #FF6584 !important;
+    padding: 0.5rem 1rem !important;
+    border-radius: 4px !important;
+    margin-top: 0.5rem !important;
+    font-size: 0.875rem !important;
+    font-weight: 500 !important;
+}
+
+[data-theme="dark"] .input-wrapper input.error {
+    border-color: #FF6584 !important;
+    box-shadow: 0 0 0 3px rgba(255, 101, 132, 0.2) !important;
+    background-color: var(--bg-tertiary) !important;
+    color: var(--text-primary) !important;
+}
+
+/* Form Options */
+.form-options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.checkbox-label {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    font-size: 0.9rem;
+    color: #666;
+    transition: color 0.3s ease;
+}
+
+/* Dark mode checkbox label */
+[data-theme="dark"] .checkbox-label {
+    color: var(--text-secondary);
+}
+
+.checkbox-label input[type="checkbox"] {
+    display: none;
+}
+
+.checkmark {
+    width: 18px;
+    height: 18px;
+    border: 2px solid #e9ecef;
+    border-radius: 4px;
+    margin-right: 0.5rem;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+/* Dark mode checkbox */
+[data-theme="dark"] .checkmark {
+    border-color: var(--border-color);
+}
+
+.checkbox-label input[type="checkbox"]:checked + .checkmark {
+    background: #6C63FF;
+    border-color: #6C63FF;
+}
+
+.checkbox-label input[type="checkbox"]:checked + .checkmark::after {
+    content: '✓';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.forgot-link {
+    color: #6C63FF;
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: color 0.3s ease;
+}
+
+/* Dark mode forgot link */
+[data-theme="dark"] .forgot-link {
+    color: var(--accent-color);
+}
+
+.forgot-link:hover {
+    color: #FF6584;
+}
+
+/* Buttons */
+.login-btn {
+    width: 100%;
+    background: linear-gradient(135deg, #6C63FF 0%, #5A52D5 100%);
+    color: white;
+    border: none;
+    padding: 1rem;
+    border-radius: 10px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(108, 99, 255, 0.3);
+}
+
+/* Dark mode login button */
+[data-theme="dark"] .login-btn {
+    background: linear-gradient(135deg, var(--accent-color) 0%, var(--accent-hover) 100%) !important;
+    color: white !important;
+}
+
+[data-theme="dark"] .login-btn:disabled {
+    background: var(--bg-tertiary) !important;
+    color: var(--text-muted) !important;
+}
+
+/* Guest Button */
+.guest-btn {
+    width: 100%;
+    background: white;
+    color: #6C63FF;
+    border: 2px solid #6C63FF;
+    padding: 1rem;
+    border-radius: 10px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-bottom: 1.5rem;
+}
+
+/* Dark mode guest button */
+[data-theme="dark"] .guest-btn {
+    background: var(--bg-tertiary) !important;
+    color: var(--accent-color) !important;
+    border-color: var(--accent-color) !important;
+}
+
+[data-theme="dark"] .guest-btn:hover {
+    background: var(--accent-color) !important;
+    color: white !important;
+}
+
+/* Sign Up Link */
+.signup-link {
+    text-align: center;
+}
+
+.signup-link p {
+    color: #666;
+    font-size: 0.9rem;
+    transition: color 0.3s ease;
+}
+
+/* Dark mode signup link text */
+[data-theme="dark"] .signup-link p {
+    color: var(--text-secondary);
+}
+
+.signup-link a {
+    color: #6C63FF;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+/* Dark mode signup link */
+[data-theme="dark"] .signup-link a {
+    color: var(--accent-color);
+}
+
+.signup-link a:hover {
+    color: #FF6584;
+}
+
+/* Background Art Elements */
+.background-art {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.art-element {
+    position: absolute;
+    font-size: 4rem;
+    opacity: 0.1;
+    animation: float 20s infinite ease-in-out;
+}
+
+.art-1 {
+    top: 10%;
+    left: 10%;
+    animation-delay: 0s;
+}
+
+.art-2 {
+    top: 20%;
+    right: 15%;
+    animation-delay: 3s;
+}
+
+.art-3 {
+    bottom: 30%;
+    left: 20%;
+    animation-delay: 6s;
+}
+
+.art-4 {
+    bottom: 15%;
+    right: 10%;
+    animation-delay: 9s;
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translate(0, 0) rotate(0deg);
+    }
+    25% {
+        transform: translate(30px, -20px) rotate(90deg);
+    }
+    50% {
+        transform: translate(-20px, 30px) rotate(180deg);
+    }
+    75% {
+        transform: translate(20px, 20px) rotate(270deg);
+    }
+}
+
+/* ===================================
+   RESPONSIVE DESIGN - MOBILE
+   =================================== */
+
+@media (max-width: 768px) {
+    .login-page {
+        padding: 1rem;
+    }
+    
+    .login-card {
+        padding: 2rem;
+        margin: 1rem;
+    }
+    
+    .login-logo {
+        font-size: 2.5rem;
+    }
+    
+    .login-header h1 {
+        font-size: 1.5rem;
+    }
+    
+    .form-options {
+        flex-direction: column;
+        gap: 1rem;
+        align-items: flex-start;
+    }
+    
+    .art-element {
+        font-size: 3rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .login-card {
+        padding: 1.5rem;
+    }
+    
+    .login-logo {
+        font-size: 2rem;
+    }
+    
+    .login-header h1 {
+        font-size: 1.3rem;
+    }
+    
+    .login-header p {
+        font-size: 0.85rem;
+    }
+    
+    .input-wrapper input {
+        padding: 0.875rem 2.5rem 0.875rem 0.875rem;
+        font-size: 0.9rem;
+    }
+    
+    .art-element {
+        font-size: 2rem;
+    }
+}

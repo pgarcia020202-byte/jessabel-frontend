@@ -1,0 +1,133 @@
+/* ===================================
+   GLOBAL STYLES & RESET
+   =================================== */
+
+@import './styles/dark-mode.css';
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Color Scheme:
+   Primary: #6C63FF (Purple-Blue)
+   Secondary: #FF6584 (Coral Pink)
+   Accent: #FFD93D (Golden Yellow)
+   Neutral: #2C3E50 (Dark Blue-Gray)
+   Background: #F8F9FA (Light Gray)
+*/
+
+body {
+    font-family: 'Arial', 'Helvetica', sans-serif;
+    line-height: 1.6;
+    color: #2C3E50;
+    background-color: #F8F9FA;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Dark mode body styles */
+[data-theme="dark"] body {
+    color: var(--text-primary);
+    background-color: var(--bg-primary);
+}
+
+main {
+    min-height: calc(100vh - 120px);
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Dark mode main element */
+[data-theme="dark"] main {
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+}
+
+h1, h2, h3, h4 {
+    font-family: 'Georgia', 'Times New Roman', serif;
+    color: #2C3E50;
+    margin-bottom: 1rem;
+    transition: color 0.3s ease;
+}
+
+/* Dark mode headings */
+[data-theme="dark"] h1,
+[data-theme="dark"] h2,
+[data-theme="dark"] h3,
+[data-theme="dark"] h4 {
+    color: var(--text-primary);
+}
+
+a {
+    text-decoration: none;
+    color: #6C63FF;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: #FF6584;
+}
+
+/* Dark mode links */
+[data-theme="dark"] a {
+    color: var(--accent-color);
+}
+
+[data-theme="dark"] a:hover {
+    color: var(--accent-hover);
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Dark mode container */
+[data-theme="dark"] .container {
+    background-color: transparent;
+    color: var(--text-primary);
+}
+
+/* ===================================
+   FOOTER
+   =================================== */
+
+footer {
+    background-color: #2C3E50;
+    color: white;
+    padding: 2rem 0;
+    text-align: center;
+    margin-top: 3rem;
+}
+
+footer p {
+    margin: 0.5rem 0;
+}
+
+/* ===================================
+   RESPONSIVE DESIGN - TABLET
+   =================================== */
+
+@media (max-width: 768px) {
+    .container {
+        padding: 0 15px;
+    }
+}
+
+/* ===================================
+   RESPONSIVE DESIGN - MOBILE
+   =================================== */
+
+@media (max-width: 480px) {
+    .container {
+        padding: 0 10px;
+    }
+}
