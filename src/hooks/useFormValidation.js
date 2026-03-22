@@ -7,7 +7,7 @@ const validationRules = {
   minLength: (min) => (value) => value.length >= min || `Minimum ${min} characters required`,
   maxLength: (max) => (value) => value.length <= max || `Maximum ${max} characters allowed`,
   passwordMatch: (password) => (confirmPassword) => confirmPassword === password || 'Passwords do not match',
-  phone: (value) => /^[\d\s\-\+\(\)]+$/.test(value) || 'Please enter a valid phone number',
+  phone: (value) => /^[\d\s\-+()]+$/.test(value) || 'Please enter a valid phone number',
   url: (value) => /^https?:\/\/.+/.test(value) || 'Please enter a valid URL'
 };
 

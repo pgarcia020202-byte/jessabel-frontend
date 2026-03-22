@@ -79,7 +79,7 @@ export const AppProvider = ({ children }) => {
         console.error('Failed to parse preferences:', error);
       }
     }
-  }, []);
+  }, [state.theme]);
 
   // Save preferences to localStorage when they change
   useEffect(() => {
